@@ -24,8 +24,8 @@ Add the following functionality to the application
 1. Make use of jQuery
 1. Improve CSS organization
 1. Improve presentation
+1. Like counts should be persisted to a database so that on a page refresh, we can see the total likes over time
 1. Add a link or button that allows us to get and display more characters from the Star Wars API
-1. Stretch goal: Like counts should be persisted to a database so that on a page refresh, we can see the total likes over time
 
 ### Requirements
 
@@ -41,6 +41,14 @@ Add the following functionality to the application
    1. Incorporate a color theme
    1. Fix the footer to the bottom of the viewport
    1. Add at least one more meaningful improvement to the design
+
+1. Rewire the buttons to save the upvote clicks permanently in the database:
+
+   1. When the user clicks a button, send a PUT request to the server, at an endpoint of `/characters/<name of character>`
+   1. Create a `put` route on the server to handle this, called `/characters/:name`
+   1. When this server-side route is invoked, add one to the click count for the named character in the database
+   1. Respond back to the client with a redirect to the index page
+   1. Find a way to automatically load enough data to ensure the most recently changed charcter is showing on the screen
 
 1. Add a button to the bottom of the page labeled "Get More Characters" that will dynamically load the next bunch of characters from the Star Wars API and render them on the page alongside the others:
    1. Add Handlebars to your page
@@ -82,14 +90,6 @@ Add the following functionality to the application
       1. Render the html for a character using the Handlebars template
       1. Append the character's HTML to the DOM, after the others.
 
-1. Rewire the buttons to save the upvote clicks permanently in the database:
-
-   1. When the user clicks a button, send a PUT request to the server, at an endpoint of `/characters/<name of character>`
-   1. Create a `put` route on the server to handle this, called `/characters/:name`
-   1. When this server-side route is invoked, add one to the click count for the named character in the database
-   1. Respond back to the client with a redirect to the index page
-   1. Find a way to automatically load enough data to ensure the most recently changed charcter is showing on the screen
-
 ## Code Submission
 
-When you are done, DO NOT post your code on GitHub. Instead, zip all files in the project directory, and upload this to your instructor. 
+When you are done, DO NOT post your code on GitHub. Instead, zip all files in the project directory, and upload this to your instructor.
