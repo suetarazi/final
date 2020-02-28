@@ -1,0 +1,8 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    font-family: Press Start 2P;
+    /* font-family: fantasy; */
+    font-family: 'Codystar', ;
+    box-sizing: border-box;
+}
