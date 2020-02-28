@@ -31,3 +31,35 @@ function likeMe(e) {
   count++;
   counter.textContent = count;
 }
+
+
+//Handlebars Code: 
+$('.charButton').on('click', function(){
+  $(this).toggleClass('gray');
+})
+
+// make an ajax call to the backend to get the tasks from the DB
+$.ajax('http://localhost:3000//characters?page=2', {method:'GET', dataType: 'JSON'})
+  .then(data => {
+    data.forEach(character => {
+      new Character(character).render();
+    })
+  })
+
+// run them through a constructor
+function Character(obj){
+  let charArray = [];
+  this.name = obj.results.name;
+  this.height = obj.results.height;
+  this.likes = obj.results.likes;
+  charArray.push(this);
+}
+
+// make a prototype to display them using handlebars
+Task.prototype.render = function(){
+  var source = $('#entry-template').html();
+  var template = Handlebars.compile(source);
+  var html = template(this);
+
+  $('#characters').append(html);
+}

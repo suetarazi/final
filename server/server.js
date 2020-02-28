@@ -41,6 +41,9 @@ app.set('views', './server/views');
 // a method that the routes.js file exported
 app.get('/', routes.homePageHandler);
 
+//Sue's route for Handlebars
+app.get('/characters', fetchCharactersFromSWAPI(2));
+
 // Wire in the defaults we required above.
 app.use('*', defaults.notFoundHandler);
 app.use(defaults.errorHandler);
