@@ -42,7 +42,17 @@ app.set('views', './server/views');
 app.get('/', routes.homePageHandler);
 
 //Sue's route for Handlebars
-// app.get('/characters', fetchCharactersFromSWAPI);
+app.get('/characters', moreCharacters);
+
+function moreCharacters(request, response) {
+  routes.fetchCharactersFromSWAPI(request.query.page)
+  // console.log(request.query.page);
+  .then(data => {
+    // console.log(data);
+    response.json(data);
+  }) 
+
+}
 
 // Wire in the defaults we required above.
 app.use('*', defaults.notFoundHandler);

@@ -12,10 +12,9 @@
 
 <!-- handlebars entry-template -->
 <script id="entry-template" type="text/x-handlebars-template">
-  <div data-keyword = "{{characters}}">
-    <h1>{{results.name}}</h1>
-    <span>{{results.height}}</span>
-    <button>{{results.like}}</button>
+  <div class=character>
+    <h1>{{name}}</h1>
+    <span>{{likes}}</span>
   </div>
 </script>
 </head>
@@ -40,12 +39,14 @@
       <% } %>
 
     </section>
-    <div id = "moreChar">
-    <button >Get More Characters</button>
-    </div>
-    <section id="characters" class="character container">
     
-    </section>
+    <section id="characters" class="character container">
+      
+      <div id = "moreChar">
+      <button id = "getMoreChar" type = "submit">Get More Characters</button>
+      </div>
+      
+  </section>
   </main>
   <footer>
     <strong>&copy; 2020 Code Fellows</strong>

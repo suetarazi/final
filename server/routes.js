@@ -63,4 +63,4 @@ function getNumberOfLikes(data) {
     })
 }
 
-module.exports = { homePageHandler };
+module.exports = { homePageHandler, fetchCharactersFromSWAPI };
