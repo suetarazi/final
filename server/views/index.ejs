@@ -12,11 +12,12 @@
 
 <!-- handlebars entry-template -->
 <script id="entry-template" type="text/x-handlebars-template">
-  <div class="charButton">
-    <h1>{{characters}}</h1>
+  <div data-keyword = "{{characters}}">
+    <h1>{{results.name}}</h1>
+    <span>{{results.height}}</span>
+    <button>{{results.like}}</button>
   </div>
 </script>
-
 </head>
 
 <body>
@@ -39,18 +40,11 @@
       <% } %>
 
     </section>
-    <div class = charButton>
+    <div id = "moreChar">
     <button >Get More Characters</button>
     </div>
     <section id="characters" class="character container">
-      <ul>
-      <!-- <% charArray.forEach(char => { %>
-        <li><%= char.name %></li>
-        <li><%= char.height %></li>
-        <li><%= char.likes %></li>
-        
-      <% }) %> -->
-      </ul>
+    
     </section>
   </main>
   <footer>

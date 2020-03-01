@@ -1,5 +1,6 @@
 'use strict';
 
+let page=1;
 //Sue's attempt at JQUERY:
 // let likeButtons = $('button');
 
@@ -36,15 +37,19 @@ function likeMe(e) {
 //Handlebars Code: 
 $('.charButton').on('click', function(){
   $(this).toggleClass('gray');
-})
+  page++;
+  ajaxCall(page);
+})  
 
 // make an ajax call to the backend to get the tasks from the DB
-$.ajax('http://localhost:3000//characters?page=2', {method:'GET', dataType: 'JSON'})
+function ajaxCall(page) {
+  $.ajax(`http://localhost:3000/characters?page=${page}`, {method:'GET', dataType: 'JSON'})
   .then(data => {
     data.forEach(character => {
       new Character(character).render();
     })
   })
+}
 
 // run them through a constructor
 function Character(obj){
@@ -57,9 +62,9 @@ function Character(obj){
 
 // make a prototype to display them using handlebars
 Task.prototype.render = function(){
-  var source = $('#entry-template').html();
-  var template = Handlebars.compile(source);
-  var html = template(this);
+  let source = $('#entry-template').html();
+  let template = Handlebars.compile(source);
+  let html = template(this);
 
-  $('#characters').append(html);
+  $('#moreChar').append(html);
 }
