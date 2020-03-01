@@ -28,6 +28,9 @@ const defaults = require('./middleware.js');
 // The handlers for the routes that this API will actually use
 const routes = require('./routes.js');
 
+//method override
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 // Anything static (css or browser-side javascript) should go here
 app.use(express.static('./www'));
@@ -51,6 +54,21 @@ function moreCharacters(request, response) {
     // console.log(data);
     response.json(data);
   }) 
+
+}
+
+app.put('/characters/:name', increaseVotes)
+
+function increaseVotes(request, response) {
+  let name = request.params.name;
+  let sql = 'UPDATE click_counts SET clicks=clicks+1 WHERE remote_id=$1 RETURNING clicks;';
+  let safeValues = [name];
+
+  database.query(sql, safeValues)
+  .then(() => {
+    response.redirect('/');
+  })
+
 
 }
 

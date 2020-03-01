@@ -33,8 +33,10 @@
 
           <h2><%= results[x].name %></h2>
         </header>
+      <form action="/characters/<%=results[x].name%>?_method=PUT" method="post">
         <span><%= results[x].likes || 0 %></span>
-        <button>Upvote</button>
+        <button type = "submit">Upvote</button>
+      </form>
       </div>
       <% } %>
 
