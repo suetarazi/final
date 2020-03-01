@@ -13,5 +13,5 @@ const errorHandler = (err, req, res) => {
 module.exports = { notFoundHandler, errorHandler }
 
 // Anyone that requires this module can use this like this:
-//   const helpers = require('middleware.js')
+  // const helpers = require('middleware.js')
 //   ... now, helpers.notFoundHandler() is the function above, in that module
