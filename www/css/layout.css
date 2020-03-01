@@ -4,12 +4,13 @@ body {
     background-color: midnightblue;
     background-image: url("https://cdn.pixabay.com/photo/2016/08/29/01/56/millenium-falcon-1627322_1280.jpg");
     box-sizing: border-box;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 
 h1 {
     font-size: 1.5em;
-    font-family: 'Press Start 2P', ;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 main {

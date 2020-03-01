@@ -5,7 +5,7 @@ body > header {
     line-height: 3em;
     text-align: center;
     font-size: 25px;
-    font-family: 'Press Start 2P', ;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 footer {
@@ -14,6 +14,11 @@ footer {
     height: 4em;
     line-height: 4em;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
 }
 
 
