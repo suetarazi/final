@@ -52,13 +52,18 @@ Character.prototype.render = function(){
 let likeButtons = $('button');
 // let likeButtons = document.getElementsByTagName('button');
 
+// Sue: can't figure out how to refactor this event listener to JQuery
+// likeButtons.each('click', likeMe);
+
 for (let i = 0; i < likeButtons.length; i++) {
   likeButtons[i].addEventListener('click', likeMe);
 }
 
+
 function likeMe(e) {
   let character = e.target.parentNode;
-  let counter = character.getElementsByTagName('span')[0];
+  // $(element).find(tagName)
+  let counter = $('character').find('span')[0];
   let count = parseInt(counter.textContent);
   count++;
   counter.textContent = count;

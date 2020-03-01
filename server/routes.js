@@ -37,6 +37,31 @@ function fetchCharactersFromSWAPI(pageNumber) {
     .catch(error => { throw error; });
 }
 
+//Handlebars function - not sure why this doesn't work in this file but works fine from server.js
+// function moreCharacters(request, response) {
+//   routes.fetchCharactersFromSWAPI(request.query.page)
+//   // console.log(request.query.page);
+//   .then(data => {
+//     // console.log(data);
+//     response.json(data);
+//   }) 
+
+// }
+
+//Increased votes function - again, not sure why this doesn't work if its being called from another js file
+// function increaseVotes(request, response) {
+//   let name = request.params.name;
+//   let sql = 'UPDATE click_counts SET clicks=clicks+1 WHERE remote_id=$1 RETURNING clicks;';
+//   let safeValues = [name];
+
+//   database.query(sql, safeValues)
+//   .then(() => {
+//     response.redirect('/');
+//   })
+
+
+
+
 
 // For each individual in the list of results, see if they
 // had a database entry and get the number of likes.

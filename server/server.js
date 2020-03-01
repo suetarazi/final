@@ -47,6 +47,7 @@ app.get('/', routes.homePageHandler);
 //Sue's route for Handlebars
 app.get('/characters', moreCharacters);
 
+//function for handlebars
 function moreCharacters(request, response) {
   routes.fetchCharactersFromSWAPI(request.query.page)
   // console.log(request.query.page);
@@ -59,6 +60,7 @@ function moreCharacters(request, response) {
 
 app.put('/characters/:name', increaseVotes)
 
+//function for increasing votes
 function increaseVotes(request, response) {
   let name = request.params.name;
   let sql = 'UPDATE click_counts SET clicks=clicks+1 WHERE remote_id=$1 RETURNING clicks;';
